@@ -34,7 +34,6 @@ make -j 4 && make install
 make samples
 make config
 useradd -m asterisk
-mkdir -p /var/lib/asterisk/sounds/ari
 
 #file operations
 cd /usr/src/asteriskdeploy/
@@ -50,7 +49,6 @@ chown asterisk. /var/run/asterisk
 chown -R asterisk. /etc/asterisk
 chown -R asterisk. /usr/lib64/asterisk
 chown -R asterisk. /var/{lib,spool,log}/asterisk/
-chmod -R 777 /var/lib/asterisk/sounds
 
 #enable & start services
 systemctl enable asterisk
