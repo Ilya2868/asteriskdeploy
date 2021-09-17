@@ -24,13 +24,14 @@ systemctl stop firewalld && systemctl disable firewalld
 
 
 #build asterisk
-wget http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-16.7.0.tar.gz -O /usr/src/asteriskdeploy/asterisk.tar.gz
+wget http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-16.20.0.tar.gz -O /usr/src/asteriskdeploy/asterisk.tar.gz
 cd /usr/src/asteriskdeploy/
 tar -xf ./asterisk.tar.gz
-cd /usr/src/asteriskdeploy/asterisk-16.7.0
+cd /usr/src/asteriskdeploy/asterisk-16.20.0
 ./contrib/scripts/install_prereq install
 ./configure --libdir=/usr/lib64 --with-jansson-bundled
-make -j 4 && make install
+make
+make install
 make samples
 make config
 useradd -m asterisk
